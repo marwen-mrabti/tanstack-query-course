@@ -73,14 +73,51 @@
 @layer base {
   :root {
     /*define light theme variables  */
+    --color-background: var(--color-slate-50);
+    --color-secondary: var(--color-slate-200);
+    --color-grid: var(--color-slate-300);
+    --color-primary: var(--color-orange-400);
   }
 
   .dark {
     /*define dark theme variables */
+    --color-background: var(--color-slate-800);
+    --color-secondary: var(--color-slate-900);
+    --color-grid: var(--color-slate-700);
+    --color-primary: var(--color-orange-600);
+  }
+
+  body {
+    background:
+      fixed
+        linear-gradient(
+          to bottom right,
+          transparent 10%,
+          var(--color-secondary) 90%
+        ),
+      fixed
+        repeating-linear-gradient(
+          to right,
+          transparent 0px 2px,
+          var(--color-grid) 2px 3px,
+          transparent 3px 30px
+        ),
+      fixed
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0px 2px,
+          var(--color-grid) 2px 3px,
+          transparent 3px 30px
+        )
+        var(--color-background);
   }
 }
 
-@variant dark (&:where(.dark, .dark *))
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --color-background: var(--color-background);
+  --color-secondary: var(--color-secondary);
+  --color-grid: var(--color-grid);
+  --color-primary: var(--color-primary);
 }
