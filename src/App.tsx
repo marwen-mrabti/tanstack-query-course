@@ -1,4 +1,5 @@
 import { reactLogo, tsQueryLogo } from "./assets";
+import BookCard from "./components/book-card";
 
 function App() {
   return (
@@ -7,6 +8,9 @@ function App() {
         <img src={reactLogo} alt="react.js logo" />
         <img src={tsQueryLogo} alt="tanstack query logo" />
         <h1 className="text-primary text-4xl">tanstack query</h1>
+
+        <hr className="h-1 w-full bg-indigo-500" />
+        <BookCard />
       </div>
     </main>
   );

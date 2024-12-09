@@ -88,6 +88,8 @@
   }
 
   body {
+    max-width: 100dvw;
+    overflow-x: clip;
     background:
       fixed
         linear-gradient(
