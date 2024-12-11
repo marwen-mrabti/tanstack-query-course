@@ -12,7 +12,7 @@ export const useBookDetails = ({
   return useQuery({
     queryKey: ["book", { bookId, searchTerm }],
     queryFn: async () => getBookDetails({ bookId, searchTerm }),
-    enabled: !!bookId || !!searchTerm,
+    enabled: Boolean(bookId || searchTerm),
     staleTime: 5000, // 5 seconds
     gcTime: 1000 * 60, // 1 minute : the cache will be cleared after 1 minute of inactivity
 

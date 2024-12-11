@@ -38,9 +38,38 @@ export async function getBooksByAuthor({
   authors?: string[];
 }): Promise<T_Books> {
   try {
-    const response = await fetch(`${BASE_URL}/books/search?q=${authors}`);
+    if (!authors || authors.length === 0) {
+      // Return an empty array or handle the case appropriately.
+      return []; // Or a specific message like { books: [], message: "No authors provided" }
+    }
+
+    const queryString = authors.map(encodeURIComponent).join(","); // Properly encode authors
+    console.log("queryString", queryString);
+    let url = `${BASE_URL}/books/search`;
+    if (queryString) {
+      // Only add the query parameter if queryString is not empty
+      url += `?q=${queryString}`;
+    }
+    const response = await fetch(url);
     const data = await response.json();
     return data.books;
+  } catch (error) {
+    if (error instanceof Error) {
+      return [];
+    } else {
+      throw new Error("An unknown error occurred");
+    }
+  }
+}
+
+export const getBookReviews = async (bookId?: string) => {
+  try {
+    if (!bookId) {
+      throw new Error("Book ID is required");
+    }
+    const response = await fetch(`${BASE_URL}/reviews/${bookId}`);
+    const data = await response.json();
+    return data;
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(`Error: ${error.message}`);
@@ -48,4 +77,4 @@ export async function getBooksByAuthor({
       throw new Error("An unknown error occurred");
     }
   }
-}
+};

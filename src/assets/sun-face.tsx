@@ -26,8 +26,8 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
       <g
         fill="#f6f1d7"
         stroke="#231f20"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
       >
         <path d="M227.88 42.21c-9.23 0-16.73-12.47-16.73-27.81a.85.85 0 1 0-1.7 0c0 15.33-7.51 27.81-16.73 27.81a.85.85 0 1 0 0 1.7c9.23 0 16.73 12.47 16.73 27.81a.85.85 0 1 0 1.7 0c0-15.33 7.51-27.81 16.73-27.81a.85.85 0 1 0 0-1.7ZM36.62 160.84c-5.98 0-10.85-8.09-10.85-18.02 0-.31-.25-.55-.55-.55s-.55.25-.55.55c0 9.94-4.87 18.02-10.85 18.02-.31 0-.55.25-.55.55s.25.55.55.55c5.98 0 10.85 8.09 10.85 18.02 0 .31.25.55.55.55s.55-.25.55-.55c0-9.94 4.87-18.02 10.85-18.02.31 0 .55-.25.55-.55s-.25-.55-.55-.55ZM183.25 33c-5 0-9.06-6.76-9.06-15.06 0-.25-.21-.46-.46-.46s-.46.21-.46.46c0 8.31-4.07 15.06-9.06 15.06-.26 0-.46.21-.46.46s.21.46.46.46c5 0 9.06 6.76 9.06 15.06 0 .25.21.46.46.46s.46-.21.46-.46c0-8.31 4.07-15.06 9.06-15.06.26 0 .46-.21.46-.46s-.21-.46-.46-.46Z"></path>
       </g>
@@ -35,8 +35,8 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
         id="rays"
         fill="#f6f1d7"
         stroke="#231f20"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
       >
         <path d="m123.15 132.98-19.09 7.83 20.32 22.38-1.23-30.21zM65.35 46.33l19.09-7.82-20.32-22.39 1.23 30.21zM84.51 140.82l-19.1-7.8-1.19 30.22 20.29-22.42zM103.99 38.49l19.1 7.8 1.19-30.21-20.29 22.41zM51.19 118.95l-8-19.02-22.2 20.52 30.2-1.5zM137.31 60.36l8 19.02 22.2-20.52-30.2 1.5zM43.09 79.92l7.79-19.1-30.21-1.19 22.42 20.29zM145.41 99.39l-7.79 19.1 30.21 1.19-22.42-20.29z"></path>
         <path d="M83.94 38.61h20.63L94.25 10.19 83.94 38.61zM104.57 140.71H83.94l10.31 28.42 10.32-28.42zM145.3 79.34v20.63l28.42-10.31-28.42-10.32zM43.2 99.97V79.34L14.78 89.66 43.2 99.97zM137.64 118.46l-14.59 14.59 27.39 12.8-12.8-27.39zM50.86 60.85l14.59-14.58-27.39-12.81 12.8 27.39zM123.05 46.27l14.59 14.58 12.8-27.39-27.39 12.81zM65.45 133.05l-14.59-14.59-12.8 27.39 27.39-12.8z"></path>
@@ -48,15 +48,15 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
         r="53.94"
         fill="#f6f1d7"
         stroke="#231f20"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
       ></circle>
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M61.68 104.9s7.42 22.93 32.57 22.93 32.57-22.93 32.57-22.93"
       ></path>
       <g fill="#231f20">
@@ -66,16 +66,16 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M101.56 127.26s-1.66 5.14-7.31 5.14-7.31-5.14-7.31-5.14"
       ></path>
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M75.69 72.58c-4.93 0-11.57 5.78-11.57 5.78s6.63 5.78 11.57 5.78 11.57-5.78 11.57-5.78-6.63-5.78-11.57-5.78Z"
       ></path>
       <path
@@ -85,8 +85,8 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M112.81 72.58c-4.93 0-11.57 5.78-11.57 5.78s6.63 5.78 11.57 5.78 11.57-5.78 11.57-5.78-6.63-5.78-11.57-5.78Z"
       ></path>
       <path
@@ -96,61 +96,61 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M43.56 71.15c4.17-7.16 11.92-11.97 20.8-11.97 13.29 0 24.06 10.77 24.06 24.06v17.64h11.66V83.24c0-13.29 10.77-24.06 24.06-24.06 8.66 0 16.25 4.57 20.48 11.44"
       ></path>
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M57.3 50.67c2.24-.69 4.61-1.06 7.07-1.06 13.29 0 24.06 10.77 24.06 24.06v17.64"
       ></path>
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M75.04 39.54c7.93 3.93 13.38 12.11 13.38 21.56v17.64M113.47 39.54c-7.93 3.93-13.38 12.11-13.38 21.56v17.64"
       ></path>
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M131.21 50.67c-2.24-.69-4.61-1.06-7.07-1.06-13.29 0-24.06 10.77-24.06 24.06v17.64"
       ></path>
-      <g clip-path="url(#a)">
+      <g clipPath="url(#a)">
         <path
           fill="none"
           stroke="#f6f1d7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.23"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.23"
           d="M61.68 104.9s7.42 22.93 32.57 22.93 32.57-22.93 32.57-22.93"
         ></path>
       </g>
-      <g clip-path="url(#b)">
+      <g clipPath="url(#b)">
         <path
           fill="none"
           stroke="#f6f1d7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.23"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.23"
           d="M61.68 104.9s7.42 22.93 32.57 22.93 32.57-22.93 32.57-22.93"
         ></path>
       </g>
       <path
         fill="none"
         stroke="#231f20"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.23"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.23"
         d="M101.4 127.26c-4.03-10.49-7.15-3.1-7.15-3.1h-.16s-3.11-7.39-7.15 3.1"
       ></path>
       <g fill="#231f20">
