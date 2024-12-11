@@ -67,6 +67,8 @@
 */
   #root {
     isolation: isolate;
+    overflow-x: clip;
+    max-width: 100dvw;
   }
 }
 
@@ -77,6 +79,7 @@
     --color-secondary: var(--color-slate-200);
     --color-grid: var(--color-slate-300);
     --color-primary: var(--color-orange-400);
+    --color-app-border: var(--color-slate-900);
   }
 
   .dark {
@@ -85,11 +88,22 @@
     --color-secondary: var(--color-slate-900);
     --color-grid: var(--color-slate-700);
     --color-primary: var(--color-orange-600);
+    --color-app-border: var(--color-slate-100);
   }
+}
 
-  body {
-    max-width: 100dvw;
-    overflow-x: clip;
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: var(--color-background);
+  --color-secondary: var(--color-secondary);
+  --color-grid: var(--color-grid);
+  --color-primary: var(--color-primary);
+  --color-app-border: var(--color-app-border);
+}
+
+@layer base {
+  .bg-net {
     background:
       fixed
         linear-gradient(
@@ -113,13 +127,4 @@
         )
         var(--color-background);
   }
-}
-
-@variant dark (&:where(.dark, .dark *));
-
-@theme {
-  --color-background: var(--color-background);
-  --color-secondary: var(--color-secondary);
-  --color-grid: var(--color-grid);
-  --color-primary: var(--color-primary);
 }
