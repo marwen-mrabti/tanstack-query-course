@@ -1,4 +1,4 @@
-import { getBookDetails } from "@/lib/query-fns";
+import { getBookDetailsQueryOptions } from "@/hooks/useBookDetails";
 import { cn } from "@/lib/utils";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
@@ -28,10 +28,9 @@ const CustomSelect = ({
 
   const handlePrefetch = (bookId: string) => {
     if (bookId) {
-      queryClient.prefetchQuery({
-        queryKey: ["book", { bookId, searchTerm: "" }],
-        queryFn: () => getBookDetails({ bookId }),
-      });
+      queryClient.prefetchQuery(
+        getBookDetailsQueryOptions({ bookId, searchTerm: "" }),
+      );
     }
   };
 
@@ -61,23 +60,28 @@ const CustomSelect = ({
           "select a book"}
       </button>
 
-      {isOpen && (
-        <div className="absolute z-10 mt-1 w-full overflow-hidden rounded-lg bg-slate-800 shadow-lg">
-          {books.map((book) => (
-            <div
-              key={book.id}
-              onMouseEnter={() => handlePrefetch(book.id)}
-              onClick={() => {
-                setSelectedBookId(book.id);
-                setIsOpen(false);
-              }}
-              className="cursor-pointer px-4 py-2 text-slate-100 hover:bg-slate-700"
-            >
-              {book.title}
-            </div>
-          ))}
-        </div>
-      )}
+      <div
+        className={cn(
+          "absolute z-10 mt-1 h-0 w-full overflow-hidden rounded-lg bg-slate-800 shadow-lg transition-all duration-300 ease-linear",
+          {
+            "h-auto": isOpen,
+          },
+        )}
+      >
+        {books.map((book) => (
+          <div
+            key={book.id}
+            onMouseEnter={() => handlePrefetch(book.id)}
+            onClick={() => {
+              setSelectedBookId(book.id);
+              setIsOpen(false);
+            }}
+            className="cursor-pointer px-4 py-2 text-slate-100 hover:bg-slate-700"
+          >
+            {book.title}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

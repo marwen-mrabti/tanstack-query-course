@@ -74,36 +74,39 @@
 
 @layer base {
   :root {
+    /* Enable height interpolation */
+    interpolate-size: allow-keywords;
+
     /*define light theme variables  */
-    --color-background: var(--color-slate-50);
-    --color-secondary: var(--color-slate-200);
-    --color-grid: var(--color-slate-300);
-    --color-primary: var(--color-orange-400);
-    --color-app-border: var(--color-slate-900);
+    --background: var(--color-slate-50);
+    --secondary: var(--color-slate-200);
+    --grid-line: var(--color-slate-300);
+    --primary: var(--color-orange-400);
+    --app-border: var(--color-slate-900);
   }
 
   .dark {
     /*define dark theme variables */
-    --color-background: var(--color-slate-800);
-    --color-secondary: var(--color-slate-900);
-    --color-grid: var(--color-slate-700);
-    --color-primary: var(--color-orange-600);
-    --color-app-border: var(--color-slate-100);
+    --background: var(--color-slate-800);
+    --secondary: var(--color-slate-900);
+    --grid-line: var(--color-slate-700);
+    --primary: var(--color-orange-600);
+    --app-border: var(--color-slate-100);
   }
 }
 
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-background: var(--color-background);
-  --color-secondary: var(--color-secondary);
-  --color-grid: var(--color-grid);
-  --color-primary: var(--color-primary);
-  --color-app-border: var(--color-app-border);
+  --color-background: var(--background);
+  --color-secondary: var(--secondary);
+  --color-grid-line: var(--grid-line);
+  --color-primary: var(--primary);
+  --color-app-border: var(--app-border);
 }
 
 @layer base {
-  .bg-net {
+  .bg-grid {
     background:
       fixed
         linear-gradient(
@@ -115,14 +118,14 @@
         repeating-linear-gradient(
           to right,
           transparent 0px 2px,
-          var(--color-grid) 2px 3px,
+          var(--color-grid-line) 2px 3px,
           transparent 3px 30px
         ),
       fixed
         repeating-linear-gradient(
           to bottom,
           transparent 0px 2px,
-          var(--color-grid) 2px 3px,
+          var(--color-grid-line) 2px 3px,
           transparent 3px 30px
         )
         var(--color-background);

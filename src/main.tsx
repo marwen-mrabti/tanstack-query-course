@@ -6,6 +6,14 @@ import "./index.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { scan } from "react-scan";
+
+// if (typeof window !== "undefined") {
+//   scan({
+//     enabled: true,
+//     log: true, // logs render info to console (default: false)
+//   });
+// }
 
 const queryClient = new QueryClient({
   defaultOptions: {

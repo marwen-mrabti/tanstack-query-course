@@ -14,6 +14,7 @@ const ReactCompilerConfig = {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    // MillionLint.vite(),
     react({
       babel: {
         plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],

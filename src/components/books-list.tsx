@@ -7,7 +7,7 @@ export default function BooksList() {
   const debouncedAuthors = useDebounce(authors, 500);
 
   const booksQuery = useBooksByAuthor({
-    authors: debouncedAuthors?.split(","),
+    authors: debouncedAuthors ?? "",
   });
 
   const handleAuthorsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +15,7 @@ export default function BooksList() {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="grid w-full grid-cols-1 content-start justify-items-center gap-4">
       <input
         id="authors"
         name="authors"
@@ -23,16 +23,21 @@ export default function BooksList() {
         placeholder="authors (comma separated : e.g. J.R.R. Tolkien, C.S. Lewis)"
         value={authors ?? ""}
         onChange={handleAuthorsChange}
-        className="rounded-lg bg-slate-800 px-4 py-2 text-slate-100 ring-1 ring-slate-600 placeholder:text-slate-400 focus:ring-2 focus:ring-slate-400"
+        className="w-2/3 rounded-lg bg-slate-800 px-4 py-2 text-slate-100 ring-1 ring-slate-600 placeholder:text-slate-400 focus:ring-2 focus:ring-slate-400"
       />
 
       {booksQuery.isLoading ? <p>Loading...</p> : null}
       {booksQuery.isError ? <p>Error: {booksQuery.error.message}</p> : null}
 
       {booksQuery.isSuccess ? (
-        <ul>
+        <ul className="w-2/3 border border-dashed border-amber-200">
           {booksQuery.data.map((book) => (
-            <li key={book.id}>{book.title}</li>
+            <li
+              key={book.id}
+              className="w-full overflow-ellipsis text-slate-100"
+            >
+              {book.title}
+            </li>
           ))}
         </ul>
       ) : null}

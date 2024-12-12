@@ -2,6 +2,8 @@ import MoonFace from "./assets/moon-face";
 import SunFace from "./assets/sun-face";
 import BookCard from "./components/book-card";
 import BooksList from "./components/books-list";
+import InfiniteQueries from "./components/infinite-queries";
+import Pagination from "./components/pagination";
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
         <BooksList />
         <hr className="h-1 w-full bg-indigo-500" />
         <BookCard />
+
+        <hr className="h-1 w-full bg-indigo-500" />
+        <Pagination />
+
+        <hr className="h-1 w-full bg-indigo-500" />
+        <InfiniteQueries />
       </div>
     </main>
   );

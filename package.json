@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "scan": "bun dev & bunx react-scan@latest --watch"
   },
   "dependencies": {
+    "@million/lint": "^1.0.13",
     "@tanstack/react-query": "^5.62.3",
     "@tanstack/react-query-devtools": "^5.62.3",
     "@uidotdev/usehooks": "^2.4.1",
@@ -34,6 +36,7 @@
     "globals": "^15.12.0",
     "prettier": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
+    "react-scan": "^0.0.43",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^4.0.0-beta.4",
     "typescript": "~5.6.2",

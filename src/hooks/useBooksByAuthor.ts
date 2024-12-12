@@ -1,11 +1,11 @@
-import { getBooksByAuthor } from "@/lib/query-fns";
+import { getBooksByAuthor } from "@/hooks/query-fns";
 import { T_Books } from "@/types/query-types";
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 
 export const useBooksByAuthor = ({
   authors,
 }: {
-  authors?: string[];
+  authors?: string;
 }): UseQueryResult<T_Books> => {
   return useQuery({
     queryKey: ["books", { authors }],

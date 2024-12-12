@@ -15,17 +15,20 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
   className,
 }) => {
   const buttonText = (() => {
-    if (isRefetching) return "Refetching...";
-    if (!isStale) return "Data is fresh";
-    return "Refresh data";
+    if (isRefetching)
+      return <span className="[grid-area:stack]">Refetching...</span>;
+    if (!isStale)
+      return <span className="[grid-area:stack]">Data is fresh</span>;
+    return <span className="[grid-area:stack]">Refresh data</span>;
   })();
 
   return (
     <button
-      disabled={!isStale}
+      disabled={!isStale || isRefetching}
       className={cn(
-        "cursor-pointer rounded-lg bg-yellow-400 px-4 py-2 hover:bg-yellow-500",
-        "text-yellow-100 disabled:cursor-not-allowed disabled:bg-yellow-600 disabled:opacity-70",
+        "cursor-pointer rounded-lg bg-yellow-400 px-4 py-2 text-yellow-100",
+        "hover:bg-yellow-500 disabled:cursor-not-allowed disabled:bg-yellow-600 disabled:opacity-70",
+        "grid [grid-template-areas:'stack']",
         className,
       )}
       onClick={onRefetch}

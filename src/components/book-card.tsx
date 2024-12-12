@@ -3,12 +3,12 @@ import { useBookReviews } from "@/hooks/useBookReview";
 
 import { cn } from "@/lib/utils";
 import { useDebounce } from "@uidotdev/usehooks";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import CustomSelect from "./custom-select";
 import RefreshButton from "./refresh-btn";
 
-export default function BookCard() {
+function BookCard() {
   const [selectedBookId, setSelectedBookId] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
@@ -34,7 +34,7 @@ export default function BookCard() {
   };
 
   return (
-    <div className="bg-net container grid min-h-[50dvh] w-full max-w-7xl grid-cols-1 place-items-center gap-4 border border-amber-200 py-2">
+    <div className="bg-grid container grid min-h-[50dvh] w-full max-w-7xl grid-cols-1 content-start justify-center gap-4 border border-amber-200 py-2">
       <div className="flex w-full flex-wrap items-center justify-around gap-4 px-4">
         <CustomSelect
           selectedBookId={selectedBookId}
@@ -109,3 +109,5 @@ export default function BookCard() {
     </div>
   );
 }
+
+export default BookCard;
