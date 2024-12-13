@@ -67,8 +67,9 @@
 */
   #root {
     isolation: isolate;
-    overflow-x: clip;
     max-width: 100dvw;
+    overflow-x: clip;
+    scroll-behavior: smooth;
   }
 }
 
@@ -77,20 +78,27 @@
     /* Enable height interpolation */
     interpolate-size: allow-keywords;
 
+    /* scrollbar */
+    scrollbar-color: var(--color-primary) var(--color-background);
+    scrollbar-track-color: var(--color-secondary);
+    scrollbar-width: thin;
+
     /*define light theme variables  */
-    --background: var(--color-slate-50);
+    --background: var(--color-slate-100);
     --secondary: var(--color-slate-200);
+    --foreground: var(--color-slate-900);
     --grid-line: var(--color-slate-300);
     --primary: var(--color-orange-400);
-    --app-border: var(--color-slate-900);
+    --app-border: var(--color-slate-800);
   }
 
   .dark {
     /*define dark theme variables */
     --background: var(--color-slate-800);
     --secondary: var(--color-slate-900);
+    --foreground: var(--color-slate-50);
     --grid-line: var(--color-slate-700);
-    --primary: var(--color-orange-600);
+    --primary: var(--color-orange-500);
     --app-border: var(--color-slate-100);
   }
 }
@@ -100,12 +108,13 @@
 @theme {
   --color-background: var(--background);
   --color-secondary: var(--secondary);
+  --color-foreground: var(--foreground);
   --color-grid-line: var(--grid-line);
   --color-primary: var(--primary);
   --color-app-border: var(--app-border);
 }
 
-@layer base {
+@layer components {
   .bg-grid {
     background:
       fixed

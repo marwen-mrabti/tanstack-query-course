@@ -1,6 +1,7 @@
 import { usePosts } from "@/hooks/usePosts";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
+import LoadButton from "./load-button";
 
 export default function InfiniteQueries() {
   const loadMoreRef = useRef<HTMLLIElement>(null);
@@ -65,30 +66,30 @@ export default function InfiniteQueries() {
       {isError ? <p>Error: {error.message}</p> : null}
 
       {isSuccess && posts ? (
-        <ul className="flex max-h-[70dvh] w-2/3 flex-col gap-2 overflow-y-scroll border border-dashed border-amber-200 px-4 py-2">
+        <ul
+          className={cn(
+            "flex max-h-[70dvh] w-2/3 flex-col gap-2 overflow-y-scroll border border-dashed border-amber-200 px-4 py-2",
+            "[scrollbar-color:#fbbf24_#2b2b2b] [scrollbar-gutter:stable_both-edges] [scrollbar-width:thin]",
+          )}
+        >
           <li className="flex w-full items-center justify-end gap-4">
-            <button
-              disabled={isFetchingPreviousPage || !hasPreviousPage}
-              onClick={() => fetchPreviousPage()}
+            <LoadButton
+              direction="previous"
+              onLoad={fetchPreviousPage}
+              isFetching={isFetchingPreviousPage}
+              hasMore={hasPreviousPage}
               className={cn(
-                "grid min-w-[10ch] cursor-pointer place-items-center rounded-md bg-orange-200 px-4 py-2 text-amber-800 hover:bg-amber-200",
-                "disabled:cursor-not-allowed disabled:bg-amber-100 disabled:text-slate-500",
-                { hidden: !hasPreviousPage },
+                "bg-orange-200 text-orange-400 hover:-translate-y-0.5 hover:bg-orange-100 hover:text-orange-300",
+                {
+                  hidden: !hasPreviousPage,
+                },
               )}
-            >
-              {isLoading || isFetchingPreviousPage ? (
-                <span className="inline-block size-8 animate-spin rounded-full border-2 border-t-orange-700 text-orange-400"></span>
-              ) : !hasPreviousPage ? (
-                "you are on the first post"
-              ) : (
-                "load previous posts"
-              )}
-            </button>
+            />
           </li>
           {posts.map((post) => (
             <li
               key={post.id}
-              className="w-full rounded-2xl p-2 overflow-ellipsis text-slate-100 outline-1 outline-violet-300"
+              className="text-foreground w-full rounded-2xl p-2 overflow-ellipsis outline-1 outline-violet-300"
             >
               {post.title}
             </li>
@@ -96,39 +97,28 @@ export default function InfiniteQueries() {
           <li
             ref={loadMoreRef}
             className={cn(
-              "grid w-1/2 place-items-center place-self-center rounded-2xl border border-slate-200 bg-orange-200 px-4 py-2 text-center font-semibold text-orange-500",
+              "grid w-1/2 place-items-center place-self-center text-2xl",
               {
                 hidden: !hasNextPage,
               },
             )}
           >
             {isFetchingNextPage ? (
-              <span className="inline-block size-8 animate-spin rounded-full border-2 border-t-orange-700 text-orange-400"></span>
-            ) : hasNextPage ? (
-              "load more posts"
-            ) : (
-              "no more posts"
-            )}
+              <span className="flex size-8 animate-ping rounded-full text-orange-400">
+                ...
+              </span>
+            ) : null}
           </li>
         </ul>
       ) : null}
       <div className="flex w-full items-center justify-center gap-4">
-        <button
-          disabled={isFetchingNextPage || !hasNextPage}
-          onClick={() => fetchNextPage()}
-          className={cn(
-            "grid min-w-[10ch] cursor-pointer place-items-center rounded-md bg-orange-200 px-4 py-2 text-amber-800 hover:bg-amber-200",
-            "disabled:cursor-not-allowed disabled:bg-amber-100 disabled:text-slate-500",
-          )}
-        >
-          {isLoading || isFetchingNextPage ? (
-            <span className="inline-block size-8 animate-spin rounded-full border-2 border-t-orange-700 text-orange-400"></span>
-          ) : !hasNextPage ? (
-            "no more posts"
-          ) : (
-            "load more"
-          )}
-        </button>
+        <LoadButton
+          direction="next"
+          onLoad={fetchNextPage}
+          isFetching={isFetchingNextPage}
+          hasMore={hasNextPage}
+          className="bg-orange-400 text-slate-100 hover:-translate-y-0.5 hover:bg-orange-300 hover:text-slate-50"
+        />
       </div>
     </div>
   );

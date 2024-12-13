@@ -20,6 +20,5 @@ export const usePosts = () => {
       return firstPageParam - 1;
     },
     staleTime: 5000,
-    gcTime: 1000 * 10,
   });
 };

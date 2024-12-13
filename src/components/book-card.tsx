@@ -104,7 +104,11 @@ function BookCard() {
               </p>
             </div>
           </div>
-        ) : null}
+        ) : (
+          <h2 className="text-center text-2xl text-slate-400">
+            No book selected
+          </h2>
+        )}
       </div>
     </div>
   );
