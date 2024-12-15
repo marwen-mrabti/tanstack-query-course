@@ -1,4 +1,4 @@
-import { getBookReviews } from "@/hooks/query-fns";
+import { getBookReviews } from "@/lib/query-fns";
 import { useQuery } from "@tanstack/react-query";
 
 export const getBookReviewsQueryOptions = (bookId?: string) => {

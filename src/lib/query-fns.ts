@@ -1,6 +1,6 @@
 import { T_Book, T_Books, T_Photo, T_Post } from "@/types/query-types";
 
-const BASE_URL = "https://library-api.uidotdev.workers.dev";
+export const BASE_URL = "https://library-api.uidotdev.workers.dev";
 
 export const getBookDetails = async ({
   bookId,
@@ -80,16 +80,38 @@ export const getBookReviews = async (bookId?: string) => {
   }
 };
 
+export const getPostById = async (postId: number | null) => {
+  try {
+    if (!postId) {
+      throw new Error("Review ID is required");
+    }
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${postId}`,
+    );
+    if (!response.ok) {
+      throw new Error(`Request failed with status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Error: ${error.message}`);
+    } else {
+      throw new Error("An unknown error occurred");
+    }
+  }
+};
+
+export const PHOTOS_PER_PAGE = 6;
+
 export async function getPhotos({
   page,
 }: {
   page: number;
 }): Promise<T_Photo[]> {
   try {
-    const POST_PER_PAGE = 7;
-
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${POST_PER_PAGE}`,
+      `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${PHOTOS_PER_PAGE}`,
     );
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);

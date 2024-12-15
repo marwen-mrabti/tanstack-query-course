@@ -1,4 +1,4 @@
-import { getBooksByAuthor } from "@/hooks/query-fns";
+import { getBooksByAuthor } from "@/lib/query-fns";
 import { T_Books } from "@/types/query-types";
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 

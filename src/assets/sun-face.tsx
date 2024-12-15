@@ -10,7 +10,7 @@ const SunFace: React.FC<SunWithFaceProps> = ({ className, ...props }) => {
       className={className}
       {...props}
     >
-      <title id="sun-title">sun with a face</title>
+      <title id="sun-title">enable light mode</title>
       <defs>
         <clipPath id="a">
           <circle cx="61.68" cy="104.9" r="13.9" fill="none"></circle>

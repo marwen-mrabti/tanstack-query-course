@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getPosts } from "./query-fns";
+import { getPosts } from "../lib/query-fns";
 
 export const usePosts = () => {
   return useInfiniteQuery({

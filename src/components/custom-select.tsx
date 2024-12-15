@@ -54,7 +54,10 @@ const CustomSelect = ({
     <div className={cn("relative", className)} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full rounded-lg bg-slate-800 px-4 py-2 text-left text-slate-100"
+        className={cn(
+          "bg-popover text-foreground ring-ring ring-1",
+          "w-full rounded-lg px-4 py-2 text-left",
+        )}
       >
         {books.find((book) => book.id === selectedBookId)?.title ||
           "select a book"}
@@ -62,7 +65,7 @@ const CustomSelect = ({
 
       <div
         className={cn(
-          "absolute z-10 mt-1 h-0 w-full overflow-hidden rounded-lg bg-slate-800 shadow-lg transition-all duration-300 ease-linear",
+          "bg-popover text-popover-foreground ease-spring absolute z-10 mt-1 h-0 w-full overflow-hidden rounded-lg shadow-lg transition-all duration-300",
           {
             "h-auto": isOpen,
           },
@@ -76,7 +79,7 @@ const CustomSelect = ({
               setSelectedBookId(book.id);
               setIsOpen(false);
             }}
-            className="cursor-pointer px-4 py-2 text-slate-100 hover:bg-slate-700"
+            className="hover:bg-input/80 cursor-pointer px-4 py-2"
           >
             {book.title}
           </div>

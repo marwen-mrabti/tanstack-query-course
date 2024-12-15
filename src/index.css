@@ -75,68 +75,170 @@
 
 @layer base {
   :root {
-    /* Enable height interpolation */
-    interpolate-size: allow-keywords;
-
-    /* scrollbar */
-    scrollbar-color: var(--color-primary) var(--color-background);
-    scrollbar-track-color: var(--color-secondary);
+    /*scrollbar*/
+    scrollbar-color: var(--color-foreground-muted) var(--color-background-muted);
+    scrollbar-gutter: stable;
     scrollbar-width: thin;
 
-    /*define light theme variables  */
-    --background: var(--color-slate-100);
-    --secondary: var(--color-slate-200);
-    --foreground: var(--color-slate-900);
-    --grid-line: var(--color-slate-300);
-    --primary: var(--color-orange-400);
-    --app-border: var(--color-slate-800);
+    /* Core background colors */
+    --background: hsl(0 0% 100%); /* Main background */
+    --background-muted: hsl(10 5% 99%); /* Subtle background variations */
+
+    /* Foreground colors */
+    --foreground: hsl(222 47% 11%); /* Primary text */
+    --foreground-muted: hsl(215 25% 27%); /* Secondary text */
+    --foreground-subtle: hsl(215 20% 65%); /* Tertiary text */
+
+    /* Primary brand colors - Orange */
+    --primary: hsl(24 94% 41%); /* Base orange (#CD5C08) */
+    --primary-foreground: hsl(0 0% 100%); /* Text on primary */
+
+    /* Secondary brand colors - Blue */
+    --secondary: hsl(199 89% 29%); /* Base blue (#08668C) */
+    --secondary-foreground: hsl(0 0% 100%); /* Text on secondary */
+
+    /* Interface colors */
+    --card: hsl(0 0% 100%); /* Card backgrounds */
+    --card-foreground: hsl(222 47% 11%); /* Text on cards */
+
+    --popover: hsl(0 0% 100%); /* Popover backgrounds */
+    --popover-foreground: hsl(222 47% 11%); /* Text on popovers */
+
+    /* Border colors */
+    --border: hsl(214, 33%, 68%); /* Default borders */
+
+    /* Input colors */
+    --input: hsl(214.3 31.8% 91.4%); /* Form input borders */
+
+    /* Ring colors for focus states */
+    --ring: hsl(24 94% 41%); /* Focus rings */
+
+    /* Accent colors */
+    --accent: hsl(210 40% 96.1%); /* Subtle highlights */
+    --accent-foreground: hsl(222.2 47.4% 11.2%); /* Text on accents */
+
+    /* Destructive actions */
+    --destructive: hsl(0 84.2% 60.2%); /* Error states */
+    --destructive-foreground: hsl(0 0% 98%); /* Text on error states */
+
+    /* Muted UI elements */
+    --muted: hsl(210 40% 96.1%); /* Muted backgrounds */
+    --muted-foreground: hsl(215.4 16.3% 46.9%); /* Muted text */
   }
 
   .dark {
-    /*define dark theme variables */
-    --background: var(--color-slate-800);
-    --secondary: var(--color-slate-900);
-    --foreground: var(--color-slate-50);
-    --grid-line: var(--color-slate-700);
-    --primary: var(--color-orange-500);
-    --app-border: var(--color-slate-100);
+    /* Core background colors */
+    --background: hsl(224 71% 4%); /* Dark background */
+    --background-muted: hsl(224 71% 4%); /* Dark background variations */
+
+    /* Foreground colors */
+    --foreground: hsl(213 31% 91%); /* Light text */
+    --foreground-muted: hsl(215 20% 65%); /* Secondary light text */
+    --foreground-subtle: hsl(215 16% 47%); /* Tertiary light text */
+
+    /* Primary brand colors - Orange */
+    --primary: hsl(24 100% 56%); /* Brighter orange (#FF731F) */
+    --primary-foreground: hsl(0 0% 100%); /* Text on primary */
+
+    /* Secondary brand colors - Blue */
+    --secondary: hsl(199 90% 40%); /* Brighter blue (#0A8BC1) */
+    --secondary-foreground: hsl(0 0% 100%); /* Text on secondary */
+
+    /* Interface colors */
+    --card: hsl(224 71% 4%); /* Dark card backgrounds */
+    --card-foreground: hsl(213 31% 91%); /* Text on dark cards */
+
+    --popover: hsl(0 0% 9%); /* Dark popover backgrounds */
+    --popover-foreground: hsl(0 0% 100%); /* Text on dark popovers */
+
+    /* Border colors */
+    --border: hsl(217, 14%, 36%); /* Dark mode borders */
+
+    /* Input colors */
+    --input: hsl(216 34% 17%); /* Dark mode input borders */
+
+    /* Ring colors for focus states */
+    --ring: hsl(24 100% 56%); /* Dark mode focus rings */
+
+    /* Accent colors */
+    --accent: hsl(216 34% 17%); /* Dark mode highlights */
+    --accent-foreground: hsl(210 40% 98%); /* Text on dark accents */
+
+    /* Destructive actions */
+    --destructive: hsl(0 63% 31%); /* Dark mode error states */
+    --destructive-foreground: hsl(0 0% 98%); /* Text on dark error states */
+
+    /* Muted UI elements */
+    --muted: hsl(223 47% 11%); /* Dark muted backgrounds */
+    --muted-foreground: hsl(215.4 16.3% 56.9%); /* Dark muted text */
   }
 }
 
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /*colors */
   --color-background: var(--background);
-  --color-secondary: var(--secondary);
+  --color-background-muted: var(--background-muted);
   --color-foreground: var(--foreground);
-  --color-grid-line: var(--grid-line);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
   --color-primary: var(--primary);
-  --color-app-border: var(--app-border);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* easings */
+  --ease-spring: linear(
+    0,
+    0.169 3.6%,
+    0.295 6.7%,
+    0.411 10.1%,
+    0.516 13.8%,
+    0.609 17.8%,
+    0.687 22%,
+    0.755 26.6%,
+    0.813 31.7%,
+    0.859 37%,
+    0.896 42.8%,
+    0.95 56.5%,
+    0.98 74.2%,
+    1
+  );
 }
 
 @layer components {
   .bg-grid {
     background:
       fixed
-        linear-gradient(
-          to bottom right,
-          transparent 10%,
-          var(--color-secondary) 90%
-        ),
+        linear-gradient(to bottom right, transparent 10%, var(--background) 85%),
       fixed
         repeating-linear-gradient(
           to right,
           transparent 0px 2px,
-          var(--color-grid-line) 2px 3px,
+          var(--foreground-subtle) 2px 3px,
           transparent 3px 30px
         ),
       fixed
         repeating-linear-gradient(
           to bottom,
           transparent 0px 2px,
-          var(--color-grid-line) 2px 3px,
+          var(--foreground-subtle) 2px 3px,
           transparent 3px 30px
         )
-        var(--color-background);
+        var(--background-muted);
   }
 }

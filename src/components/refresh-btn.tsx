@@ -26,8 +26,9 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
     <button
       disabled={!isStale || isRefetching}
       className={cn(
-        "cursor-pointer rounded-lg bg-yellow-400 px-4 py-2 text-yellow-100",
-        "hover:bg-yellow-500 disabled:cursor-not-allowed disabled:bg-yellow-600 disabled:opacity-70",
+        "cursor-pointer rounded-lg px-4 py-2",
+        "bg-primary text-primary-foreground",
+        "hover:bg-primary/90 disabled:bg-primary/80 disabled:text-primary-foreground/90 disabled:cursor-not-allowed",
         "grid [grid-template-areas:'stack']",
         className,
       )}
