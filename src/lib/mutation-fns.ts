@@ -1,12 +1,12 @@
-import { T_Post, T_UpdatePost } from "@/types/query-types";
+import { T_Post } from "@/types/query-types";
 
 export const updatePost = async ({
   postId,
   updateData,
 }: {
   postId: number;
-  updateData: T_UpdatePost;
-}): Promise<T_Post> => {
+  updateData: Partial<T_Post>;
+}): Promise<unknown> => {
   try {
     if (!postId) {
       throw new Error("post ID is required");

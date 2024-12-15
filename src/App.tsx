@@ -2,6 +2,7 @@ import MoonFace from "./assets/moon-face";
 import SunFace from "./assets/sun-face";
 import BookCard from "./components/book-card";
 import BooksList from "./components/books-list";
+import ErrorBoundary from "./components/error-boundary";
 import InfiniteQueries from "./components/infinite-queries";
 import Mutations from "./components/mutations";
 import Pagination from "./components/pagination";
@@ -41,19 +42,29 @@ function App() {
         <h1 className="text-primary text-4xl">tanstack query</h1>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <BookCard />
+        <ErrorBoundary>
+          <BookCard />
+        </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <Pagination />
+        <ErrorBoundary>
+          <Pagination />
+        </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <InfiniteQueries />
+        <ErrorBoundary>
+          <InfiniteQueries />
+        </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <BooksList />
+        <ErrorBoundary>
+          <BooksList />
+        </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <Mutations />
+        <ErrorBoundary>
+          <Mutations />
+        </ErrorBoundary>
       </div>
     </main>
   );

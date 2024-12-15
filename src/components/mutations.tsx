@@ -1,5 +1,5 @@
 import { usePost } from "@/hooks/usePost";
-import { useUpdatePOST } from "@/hooks/useUpdatePOST";
+import { useUpdatePost } from "@/hooks/useUpdatePOST";
 import { cn } from "@/lib/utils";
 import { T_UpdatePost } from "@/types/query-types";
 import { useDebounce } from "@uidotdev/usehooks";
@@ -35,7 +35,7 @@ export default function Mutations() {
     isPending: isUpdatePending,
     isError: isUpdateError,
     error: updateError,
-  } = useUpdatePOST();
+  } = useUpdatePost();
 
   const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
