@@ -137,7 +137,7 @@
     --foreground-subtle: hsl(215 16% 47%); /* Tertiary light text */
 
     /* Primary brand colors - Orange */
-    --primary: hsl(24 100% 56%); /* Brighter orange (#FF731F) */
+    --primary: hsl(354 100% 63%); /* Brighter orange (##ff4154) */
     --primary-foreground: hsl(0 0% 100%); /* Text on primary */
 
     /* Secondary brand colors - Blue */

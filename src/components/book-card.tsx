@@ -35,12 +35,12 @@ function BookCard() {
 
   return (
     <section className="bg-grid w-full grid-cols-1 place-items-center">
-      <div className="border-border container grid min-h-[70dvh] w-full max-w-7xl grid-cols-1 content-start justify-center gap-4 border border-dashed bg-transparent px-6 py-2 lg:w-2/3">
-        <div className="flex w-full flex-wrap items-center justify-around gap-4 px-4">
+      <div className="border-border container grid min-h-[70dvh] w-full max-w-7xl grid-cols-1 content-start justify-center gap-4 border border-dashed bg-transparent px-2 py-2 lg:w-2/3 lg:px-6">
+        <div className="grid w-full grid-cols-1 place-items-center gap-4 sm:grid-cols-8">
           <CustomSelect
             selectedBookId={selectedBookId}
             setSelectedBookId={setSelectedBookId}
-            className="shrink-0 grow-1 basis-[33%]"
+            className="w-full sm:col-span-3"
           />
           <input
             id="book title"
@@ -49,13 +49,16 @@ function BookCard() {
             placeholder="Search"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="focus-visible:ring-ring bg-input text-foreground placeholder:text-foreground-muted rounded-lg border-none px-4 py-2 focus-visible:ring-1 focus-visible:outline-none"
+            className={cn(
+              "focus-visible:ring-ring bg-input text-foreground placeholder:text-foreground-muted rounded-lg border-none px-4 py-2 focus-visible:ring-1 focus-visible:outline-none",
+              "w-full sm:col-span-3",
+            )}
           />
           <RefreshButton
             isStale={isStale}
             isRefetching={isRefetching}
             onRefetch={refetch}
-            className="shrink-0"
+            className="w-full sm:col-span-2"
           />
         </div>
         <div className="relative w-full space-y-4 overflow-clip rounded-lg bg-transparent px-4 py-4">

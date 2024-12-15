@@ -1,3 +1,4 @@
+import { tsQueryLogo } from "./assets";
 import MoonFace from "./assets/moon-face";
 import SunFace from "./assets/sun-face";
 import BookCard from "./components/book-card";
@@ -39,7 +40,21 @@ function App() {
         />
       </div>
       <div className="bg-background mx-auto grid w-full max-w-7xl grid-cols-1 place-items-center gap-4 px-4 py-2">
-        <h1 className="text-primary text-4xl">tanstack query</h1>
+        <div className="flex w-full items-center justify-center gap-4">
+          <img
+            src={tsQueryLogo}
+            alt="tanstack query logo"
+            className="shrink-1 md:size-20"
+          />
+          <h1 className="text-primary shrink-0 text-xl sm:text-2xl lg:text-4xl">
+            tanstack query
+          </h1>
+          <img
+            src={tsQueryLogo}
+            alt="tanstack query logo"
+            className="shrink-1 md:size-20"
+          />
+        </div>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
         <ErrorBoundary>
