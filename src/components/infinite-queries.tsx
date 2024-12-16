@@ -78,7 +78,7 @@ export default function InfiniteQueries() {
       {isSuccess && posts ? (
         <ul
           className={cn(
-            "border-border bg-background-muted flex max-h-[70dvh] w-full flex-col gap-4 overflow-y-scroll border border-dashed px-4 py-2 lg:w-2/3",
+            "border-border bg-background-muted flex max-h-[70dvh] w-full flex-col gap-4 overflow-y-scroll border border-dashed px-4 py-4 lg:w-2/3",
             "[scrollbar-color:var(--color-accent-foreground)_var(--color-accent)] [scrollbar-gutter:stable_both-edges] [scrollbar-width:thin]",
           )}
         >

@@ -1,3 +1,4 @@
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { QueryCache, QueryClient } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient({
@@ -13,7 +14,6 @@ export const queryClient = new QueryClient({
       networkMode: "offlineFirst",
     },
   },
-
   queryCache: new QueryCache({
     onError: (error, query) => {
       if (typeof query.state.data !== "undefined") {
@@ -24,4 +24,8 @@ export const queryClient = new QueryClient({
       }
     },
   }),
+});
+
+export const localStoragePersister = createSyncStoragePersister({
+  storage: window.localStorage,
 });

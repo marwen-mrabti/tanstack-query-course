@@ -90,7 +90,7 @@
     --foreground-subtle: hsl(215 20% 65%); /* Tertiary text */
 
     /* Primary brand colors - Orange */
-    --primary: hsl(24 94% 41%); /* Base orange (#CD5C08) */
+    --primary: hsl(354 100% 63%); /* Brighter orange (##ff4154) */
     --primary-foreground: hsl(0 0% 100%); /* Text on primary */
 
     /* Secondary brand colors - Blue */
@@ -111,14 +111,14 @@
     --input: hsl(214.3 31.8% 91.4%); /* Form input borders */
 
     /* Ring colors for focus states */
-    --ring: hsl(24 94% 41%); /* Focus rings */
+    --ring: hsl(354, 94%, 69%); /* Dark mode focus rings */
 
     /* Accent colors */
     --accent: hsl(210 40% 96.1%); /* Subtle highlights */
     --accent-foreground: hsl(222.2 47.4% 11.2%); /* Text on accents */
 
     /* Destructive actions */
-    --destructive: hsl(0 84.2% 60.2%); /* Error states */
+    --destructive: hsl(0, 87%, 54%); /* Error states */
     --destructive-foreground: hsl(0 0% 98%); /* Text on error states */
 
     /* Muted UI elements */

@@ -4,9 +4,12 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-import { queryClient } from "@/lib/query-client.config.ts";
-import { QueryClientProvider } from "@tanstack/react-query";
+import {
+  localStoragePersister,
+  queryClient,
+} from "@/lib/query-client.config.ts";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import ThemeProvider from "./context/theme-context-provider.tsx";
 
 /*
@@ -23,10 +26,23 @@ if (typeof window !== "undefined") {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <QueryClientProvider client={queryClient}>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{
+          persister: localStoragePersister,
+          dehydrateOptions: {
+            shouldDehydrateQuery: (query) => {
+              if (query.queryKey[0] === "photos") {
+                return true;
+              }
+              return false;
+            },
+          },
+        }}
+      >
         <App />
         <ReactQueryDevtools initialIsOpen={false} position="bottom" />
-      </QueryClientProvider>
+      </PersistQueryClientProvider>
     </ThemeProvider>
   </StrictMode>,
 );
