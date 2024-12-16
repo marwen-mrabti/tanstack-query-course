@@ -10,7 +10,8 @@ export default function Pagination() {
   const [page, setPage] = useState(1);
 
   const {
-    isLoading,
+    fetchStatus,
+    isPending,
     isError,
     isSuccess,
     isPlaceholderData,
@@ -27,7 +28,14 @@ export default function Pagination() {
 
   return (
     <div className="grid w-full grid-cols-1 content-start justify-items-center gap-4">
-      {isLoading && !isPlaceholderData ? (
+      {fetchStatus === "paused" ? (
+        <p>
+          <span className="bg-destructive text-destructive-foreground rounded-lg px-8 py-2 text-center text-lg">
+            device offline, try to reconnect, we are serving cached data
+          </span>
+        </p>
+      ) : null}
+      {isPending && fetchStatus === "fetching" && !isPlaceholderData ? (
         <ul className="border-border bg-background-muted grid min-h-[70dvh] w-full auto-rows-fr grid-cols-1 gap-4 border border-dashed px-4 py-2 sm:grid-cols-2 lg:w-2/3 lg:grid-cols-3">
           {Array.from({ length: PHOTOS_PER_PAGE }, (_, i) => i).map(
             (_, index) => (

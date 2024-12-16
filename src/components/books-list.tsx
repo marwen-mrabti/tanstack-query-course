@@ -45,7 +45,16 @@ export default function BooksList() {
             enter authors to search for books
           </h3>
         )}
-        {booksQuery.isLoading ? <p>Loading...</p> : null}
+        {booksQuery.fetchStatus === "paused" ? (
+          <p>
+            <span className="bg-destructive text-destructive-foreground rounded-lg px-8 py-2 text-center text-lg">
+              device offline, try to reconnect, we are serving cached data
+            </span>
+          </p>
+        ) : null}
+        {booksQuery.isPending && booksQuery.fetchStatus === "fetching" ? (
+          <p>Loading...</p>
+        ) : null}
         {booksQuery.isError ? <p>Error: {booksQuery.error.message}</p> : null}
         {booksQuery.isSuccess ? (
           <ul className="border-border bg-background-muted flex w-2/3 flex-col gap-2 rounded-lg border border-dashed px-4 py-2">

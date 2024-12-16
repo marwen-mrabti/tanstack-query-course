@@ -14,7 +14,8 @@ function BookCard() {
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   const {
-    isLoading,
+    fetchStatus,
+    isPending,
     isError,
     isSuccess,
     data: book,
@@ -62,7 +63,14 @@ function BookCard() {
           />
         </div>
         <div className="relative w-full space-y-4 overflow-clip rounded-lg bg-transparent px-4 py-4">
-          {isLoading ? (
+          {fetchStatus === "paused" ? (
+            <p className="text-center">
+              <span className="bg-destructive text-destructive-foreground rounded-lg px-8 py-2 text-center text-lg">
+                device offline, try to reconnect, we are serving cached data
+              </span>
+            </p>
+          ) : null}
+          {isPending && fetchStatus === "fetching" ? (
             <div
               className={cn(
                 "bg-card text-card-foreground mx-auto grid w-full grid-cols-1 place-items-start gap-2 overflow-clip rounded-lg shadow-lg sm:grid-cols-[auto_1fr]",
@@ -116,7 +124,7 @@ function BookCard() {
               </div>
             </div>
           ) : null}
-          {!isLoading && !isError && !isSuccess && selectedBookId === "" ? (
+          {!isPending && !isError && !isSuccess && selectedBookId === "" ? (
             <h2 className="text-foreground text-center text-2xl">
               No book selected
             </h2>

@@ -49,10 +49,14 @@ export function useOptimisticMutation<TData, TVariables>({
       rollback?.();
     },
     onSettled: (_, __, variables) => {
-      const invalidateKeys = invalidates(variables);
-      return queryClient.invalidateQueries({
-        queryKey: invalidateKeys,
-      });
+      if (queryClient.isMutating({ mutationKey: queryKey(variables) }) === 1) {
+        const invalidateKeys = invalidates(variables);
+        console.log("keys", invalidateKeys);
+        console.log(queryKey(variables));
+        return queryClient.invalidateQueries({
+          queryKey: invalidateKeys,
+        });
+      }
     },
   });
 }

@@ -13,6 +13,6 @@ export function getPhotosQueryOptions({ page }: { page: number }) {
     placeholderData: (previousData: T_Photo[] | undefined) => {
       return previousData;
     },
-    gcTime: 1000 * 60 * 3, // after 3 minutes, the data will be garbage collected
+    gcTime: 1000 * 60 * 5, // after 3 minutes, the data will be garbage collected
   };
 }

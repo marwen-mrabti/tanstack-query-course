@@ -4,26 +4,21 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/lib/query-client.config.ts";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ThemeProvider from "./context/theme-context-provider.tsx";
-// import { scan } from "react-scan";
 
-// if (typeof window !== "undefined") {
-//   scan({
-//     enabled: true,
-//     log: true, // logs render info to console (default: false)
-//   });
-// }
+/*
+//? enable react-scan
+import { scan } from "react-scan";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5000, // 5 seconds : the data will be considered stale after 5 seconds
-      gcTime: 1000 * 60, // 1 minute : the cache will be cleared after 1 minute of inactivity
-    },
-  },
-});
+if (typeof window !== "undefined") {
+  scan({
+    enabled: true,
+    log: true, // logs render info to console (default: false)
+  });
+}*/
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

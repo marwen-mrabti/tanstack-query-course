@@ -7,7 +7,8 @@ export default function InfiniteQueries() {
   const loadMoreRef = useRef<HTMLLIElement>(null);
 
   const {
-    isLoading,
+    fetchStatus,
+    isPending,
     isFetchingPreviousPage,
     isFetchingNextPage,
     isSuccess,
@@ -46,7 +47,14 @@ export default function InfiniteQueries() {
 
   return (
     <div className="grid w-full grid-cols-1 content-start justify-items-center gap-4">
-      {isLoading ? (
+      {fetchStatus === "paused" ? (
+        <p>
+          <span className="bg-destructive text-destructive-foreground rounded-lg px-8 py-2 text-center text-lg">
+            device offline, try to reconnect, we are serving cached data
+          </span>
+        </p>
+      ) : null}
+      {isPending && fetchStatus === "fetching" ? (
         <ul
           className={cn(
             "border-border bg-background-muted flex max-h-[70dvh] w-full flex-col gap-4 overflow-y-scroll border border-dashed px-4 py-2 lg:w-2/3",
@@ -119,7 +127,7 @@ export default function InfiniteQueries() {
           hasMore={hasNextPage}
           className={cn(
             "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90 hover:-translate-y-0.5",
-            { hidden: isLoading },
+            { hidden: isPending },
           )}
         />
       </div>

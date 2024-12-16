@@ -1,27 +1,27 @@
-import { T_Post } from "@/types/query-types";
+import { T_MockBook } from "@/types/query-types";
 
-export const updatePost = async ({
-  postId,
+export const updateBook = async ({
+  bookId,
   updateData,
 }: {
-  postId: number;
-  updateData: Partial<T_Post>;
+  bookId: number;
+  updateData: Partial<T_MockBook>;
 }): Promise<unknown> => {
   try {
-    if (!postId) {
-      throw new Error("post ID is required");
+    if (!bookId) {
+      throw new Error("book ID is required");
     }
-    if (!updateData?.title && !updateData?.body) {
-      throw new Error("title or body is required");
+    if (!updateData?.title && !updateData?.author) {
+      throw new Error("title or author is required");
     }
 
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${postId}`,
+      `${import.meta.env.VITE_MOCK_API_BASE_URL}/books/${String(bookId)}`,
       {
-        method: "PATCH",
+        method: "PUT",
         body: JSON.stringify({
           title: updateData?.title,
-          body: updateData?.body,
+          author: updateData?.author,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",

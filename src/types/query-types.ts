@@ -8,11 +8,6 @@ export type T_Book = {
 
 export type T_Books = T_Book[];
 
-export type T_UpdatePost = {
-  title: string | null;
-  body: string | null;
-};
-
 export type T_Post = {
   userId: number;
   id: number;
@@ -26,4 +21,11 @@ export type T_Photo = {
   title: string;
   url: string;
   thumbnailUrl: string;
+};
+
+export type T_MockBook = {
+  id: string;
+  title: string;
+  author: string;
+  thumbnail: string;
 };

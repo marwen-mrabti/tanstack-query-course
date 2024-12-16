@@ -1,4 +1,10 @@
-import { T_Book, T_Books, T_Photo, T_Post } from "@/types/query-types";
+import {
+  T_Book,
+  T_Books,
+  T_MockBook,
+  T_Photo,
+  T_Post,
+} from "@/types/query-types";
 
 export const BASE_URL = "https://library-api.uidotdev.workers.dev";
 
@@ -23,12 +29,11 @@ export const getBookDetails = async ({
         throw new Error(`Request failed with status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data.books[0]);
       return data.books[0];
     }
   } catch (error: unknown) {
     if (error instanceof Error) {
-      throw new Error(`Error: ${error.message}`);
+      throw new Error(`${error.message}`);
     } else {
       throw new Error("An unknown error occurred");
     }
@@ -36,16 +41,20 @@ export const getBookDetails = async ({
 };
 
 export async function getBooksByAuthor({
+  signal,
   authors,
 }: {
   authors?: string;
+  signal?: AbortSignal;
 }): Promise<T_Books> {
   try {
     if (!authors?.length) {
       throw new Error("Authors are required");
     }
 
-    const response = await fetch(`${BASE_URL}/books/search?q=${authors}`);
+    const response = await fetch(`${BASE_URL}/books/search?q=${authors}`, {
+      signal,
+    });
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);
     }
@@ -73,20 +82,23 @@ export const getBookReviews = async (bookId?: string) => {
     return data;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`Error: ${error.message}`);
+      throw new Error(`${error.message}`);
     } else {
       throw new Error("An unknown error occurred");
     }
   }
 };
 
-export const getPostById = async (postId: number | null) => {
+export const getBookById = async (
+  bookId: number | null,
+): Promise<T_MockBook> => {
   try {
-    if (!postId) {
+    if (!bookId) {
       throw new Error("Review ID is required");
     }
+
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${postId}`,
+      `${import.meta.env.VITE_MOCK_API_BASE_URL}/books/${String(bookId)}`,
     );
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);
@@ -95,7 +107,7 @@ export const getPostById = async (postId: number | null) => {
     return data;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`Error: ${error.message}`);
+      throw new Error(`${error.message}`);
     } else {
       throw new Error("An unknown error occurred");
     }
@@ -120,7 +132,7 @@ export async function getPhotos({
     return data;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`Error: ${error.message}`);
+      throw new Error(`${error.message}`);
     } else {
       throw new Error("An unknown error occurred");
     }

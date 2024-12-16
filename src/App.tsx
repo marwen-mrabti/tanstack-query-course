@@ -1,9 +1,10 @@
+import { ErrorBoundary } from "react-error-boundary";
 import { tsQueryLogo } from "./assets";
 import MoonFace from "./assets/moon-face";
 import SunFace from "./assets/sun-face";
 import BookCard from "./components/book-card";
 import BooksList from "./components/books-list";
-import ErrorBoundary from "./components/error-boundary";
+import { ErrorBoundaryFallback } from "./components/error-boundary-fallback";
 import InfiniteQueries from "./components/infinite-queries";
 import Mutations from "./components/mutations";
 import Pagination from "./components/pagination";
@@ -57,27 +58,27 @@ function App() {
         </div>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
           <BookCard />
         </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
           <Pagination />
         </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
           <InfiniteQueries />
         </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
           <BooksList />
         </ErrorBoundary>
 
         <hr className="via-secondary h-1 w-full border-none bg-gradient-to-r from-transparent to-transparent" />
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
           <Mutations />
         </ErrorBoundary>
       </div>
